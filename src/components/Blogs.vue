@@ -1,12 +1,14 @@
 <template>
-  <div class="blogs col-6 d-flex flex-column" @click="selectBlog()">
+  <div class="blogs col-6 d-flex flex-column">
     <h3>{{blogsData.title}}</h3>
     <small>author: {{blogsData.creatorEmail}}</small>
+    <button @click="selectBlog()">View Blog</button>
   </div>
 </template>
 
 
 <script>
+import router from "../router";
 export default {
   name: "blogs",
   props: ["blogsData"],
@@ -17,9 +19,9 @@ export default {
   methods: {
     selectBlog() {
       this.$store.commit("setActiveBlog", {});
-      this.router.push({
+      this.$router.push({
         name: "BlogDetails",
-        params: { blogId: this.blogData._id }
+        params: { blogId: this.blogsData._id }
       });
     }
   },

@@ -12,10 +12,15 @@
 <script>
 export default {
   name: "blog-details",
+  props: ["blogData"],
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    blog() {
+      return this.$store.state.activeBlog;
+    }
+  },
   methods: {},
   components: {}
 };

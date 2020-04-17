@@ -19,6 +19,9 @@ export default new Vuex.Store({
     },
     setBlogs(state, blogs) {
       state.blogs = blogs
+    },
+    setActiveBlog(state, blog) {
+      state.activeBlog = blog
     }
   },
   actions: {
@@ -72,8 +75,16 @@ export default new Vuex.Store({
       }
     },
 
-    async selectBlog() {
-
+    async selectBlog({
+      commit,
+      dispatch
+    }, blogId) {
+      try {
+        let res = await api.get('blogs/' + blogId)
+        commit('setActiveBlog', res.data.data)
+      } catch (error) {
+        console.error(error)
+      }
     }
 
   },

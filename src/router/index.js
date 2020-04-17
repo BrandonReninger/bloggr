@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import Home from "../pages/Home.vue";
 // @ts-ignore
 import Profile from "../pages/Profile.vue";
+import BlogDetails from "../pages/BlogDetails.vue"
 import {
   authGuard
 } from "@bcwdev/auth0-vue";
@@ -24,8 +25,7 @@ const routes = [{
   {
     path: "/blogs/:blogId",
     name: "BlogDetails",
-    component: () => ( /*webpackChunkName: "blogs"*/ '../pages/BlogDetails.vue'),
-    beforeEnter: authGuard
+    component: () => import( /*webpackChunkName: "blog-details"*/ '../pages/BlogDetails.vue')
   }
 ];
 
