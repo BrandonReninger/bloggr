@@ -8,7 +8,6 @@
 
 
 <script>
-import router from "../router";
 export default {
   name: "blogs",
   props: ["blogsData"],

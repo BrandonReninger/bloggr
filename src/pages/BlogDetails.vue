@@ -18,7 +18,7 @@ export default {
     return {};
   },
   created() {
-    this.$store.dispatch("activeBlog", this.$route.params.blogId);
+    this.$store.dispatch("selectBlog", this.$route.params.blogId);
   },
   computed: {
     blog() {
