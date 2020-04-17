@@ -4,7 +4,9 @@
     <CreateBlog v-if="$auth.isAuthenticated"></CreateBlog>
     <div class="row d-flex justify-content-center">
       <h3>Things n' Stuff to Read</h3>
-      <Blogs></Blogs>
+      <div class="row">
+        <Blogs></Blogs>
+      </div>
     </div>
   </div>
 </template>
@@ -20,7 +22,7 @@ export default {
   mounted() {
     //this.$store.dispatch("getBlogs");
   },
-  components: { CreateBlog }
+  components: { CreateBlog, Blogs }
 };
 </script>
 

@@ -16,6 +16,9 @@ export default new Vuex.Store({
     setProfile(state, profile) {
       state.profile = profile;
     },
+    setBlogs(state, blogs) {
+      state.blogs = blogs
+    }
   },
   actions: {
     setBearer({}, bearer) {
@@ -35,13 +38,14 @@ export default new Vuex.Store({
       }
     },
 
-    async addBlog() {
+    async getBlogs() {
       try {
-        let res = await api.post('blogs', newBlog)
-        this.dispatch(getBlogs)
+        let res = await api.get("blogs")
+        this.commit("setBlogs", res.data)
       } catch (error) {
         console.error(error)
       }
     }
+
   },
 });
