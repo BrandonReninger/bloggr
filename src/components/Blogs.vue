@@ -1,7 +1,7 @@
 <template>
-  <div class="blogs col-6" @click="selectBlog()">
+  <div class="blogs col-6 d-flex flex-column" @click="selectBlog()">
     <h3>{{blogsData.title}}</h3>
-    user: {{blogsData.creatorEmail}}
+    <small>author: {{blogsData.creatorEmail}}</small>
   </div>
 </template>
 

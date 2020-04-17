@@ -45,6 +45,18 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error)
       }
+    },
+
+    async addBlog({
+      commit,
+      dispatch
+    }, newBlog) {
+      try {
+        let res = await api.post('blogs', newBlog)
+        dispatch('getBlogs')
+      } catch (error) {
+        console.error(error)
+      }
     }
 
   },

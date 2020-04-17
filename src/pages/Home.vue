@@ -4,9 +4,9 @@
     <CreateBlog v-if="$auth.isAuthenticated"></CreateBlog>
     <div class="row d-flex justify-content-center">
       <h3>Things n' Stuff to Read</h3>
-      <div class="row">
-        <Blogs></Blogs>
-      </div>
+    </div>
+    <div class="row d-flex">
+      <Blogs v-for="blog in blogs" :blogsData="blog" :key="blog._id"></Blogs>
     </div>
   </div>
 </template>
@@ -20,7 +20,15 @@ export default {
     return {};
   },
   mounted() {
-    //this.$store.dispatch("getBlogs");
+    this.$store.dispatch("getBlogs");
+  },
+  computed: {
+    blogs() {
+      return this.$store.state.blogs;
+    },
+    created() {
+      this.$store.dispatch("getBlogs");
+    }
   },
   components: { CreateBlog, Blogs }
 };
