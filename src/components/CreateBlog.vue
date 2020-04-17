@@ -30,7 +30,7 @@
         v-model="newBlog.creatorEmail"
       />
     </div>-->
-    <button class="btn-lg btn-primary" type="button" @click="addBlog()">SUBMIT</button>
+    <button class="btn btn-sm btn-primary" type="button" @click="addBlog()">SUBMIT</button>
   </div>
 </template>
 

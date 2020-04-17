@@ -10,7 +10,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     profile: {},
-    blogs: []
+    blogs: [],
+    activeBlog: {}
   },
   mutations: {
     setProfile(state, profile) {
@@ -57,6 +58,22 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error)
       }
+    },
+
+    async deleteBlog({
+      commit,
+      dispatch
+    }, blogId) {
+      try {
+        await api.delete('blogs/' + blogId)
+        dispatch('getBlogs')
+      } catch (error) {
+        console.error(error)
+      }
+    },
+
+    async selectBlog() {
+
     }
 
   },

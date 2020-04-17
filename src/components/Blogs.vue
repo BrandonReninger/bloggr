@@ -14,7 +14,15 @@ export default {
     return {};
   },
   computed: {},
-  methods: {},
+  methods: {
+    selectBlog() {
+      this.$store.commit("setActiveBlog", {});
+      this.router.push({
+        name: "BlogDetails",
+        params: { blogId: this.blogData._id }
+      });
+    }
+  },
   components: {}
 };
 </script>

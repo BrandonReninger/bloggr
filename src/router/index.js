@@ -4,12 +4,13 @@ import VueRouter from "vue-router";
 import Home from "../pages/Home.vue";
 // @ts-ignore
 import Profile from "../pages/Profile.vue";
-import { authGuard } from "@bcwdev/auth0-vue";
+import {
+  authGuard
+} from "@bcwdev/auth0-vue";
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
+const routes = [{
     path: "/",
     name: "Home",
     component: Home,
@@ -20,6 +21,12 @@ const routes = [
     component: Profile,
     beforeEnter: authGuard,
   },
+  {
+    path: "/blogs/:blogId",
+    name: "BlogDetails",
+    component: () => ( /*webpackChunkName: "blogs"*/ '../pages/BlogDetails.vue'),
+    beforeEnter: authGuard
+  }
 ];
 
 const router = new VueRouter({
