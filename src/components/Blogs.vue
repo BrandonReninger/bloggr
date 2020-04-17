@@ -1,24 +1,20 @@
 <template>
-    <div class="blog">
-
-
-    </div>
+  <div class="blogs"></div>
 </template>
 
 
 <script>
 export default {
-    name: 'blog',
-    data(){
-        return {}
-    },
-    computed:{},
-    methods:{},
-    components:{}
-}
+  name: "blogs",
+  data() {
+    return {};
+  },
+  computed: {},
+  methods: {},
+  components: {}
+};
 </script>
 
 
 <style scoped>
-
 </style>
