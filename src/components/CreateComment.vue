@@ -1,5 +1,5 @@
 <template>
-  <div class="comments col-6">
+  <div class="create-comment col-6">
     <div class="form-group">
       <label for="body"></label>
       <textarea
@@ -8,6 +8,7 @@
         class="form-control"
         placeholder="Comment here"
         {{commentData.comment}}
+        v-model="newComment.comment"
       />
     </div>
     <small>{{commentData.creatorEmail}}</small>
@@ -17,12 +18,14 @@
 
 <script>
 export default {
-  name: "comments",
+  name: "create-comments",
   data() {
     return {};
   },
   computed: {},
-  methods: {},
+  methods: {
+    addComment() {}
+  },
   components: {}
 };
 </script>

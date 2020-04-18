@@ -6,13 +6,13 @@
     <small>{{blog.creatorEmail}}</small>
     <button class="btn btn-sm btn-primary" @click="$router.push({name: 'Home'})">BACK</button>
     <button class="btn btn-sm btn-danger" type="button" @click="deleteBlog()">DELETE</button>
-    <Comments></Comments>
+    <CreateComment></CreateComment>
   </div>
 </template>
 
 
 <script>
-import Comments from "../components/Comments";
+import CreateComment from "../components/CreateComment";
 export default {
   name: "blog-details",
   //props: ["blogData"],
@@ -28,7 +28,9 @@ export default {
     }
   },
   methods: {},
-  components: {}
+  components: {
+    CreateComment
+  }
 };
 </script>
 

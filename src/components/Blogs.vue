@@ -2,7 +2,7 @@
   <div class="blogs col-6 d-flex flex-column">
     <h3>{{blogsData.title}}</h3>
     <small>author: {{blogsData.creatorEmail}}</small>
-    <button @click="selectBlog()">View Blog</button>
+    <button v-if="$auth.isAuthenticated" @click="selectBlog()">View Blog</button>
   </div>
 </template>
 

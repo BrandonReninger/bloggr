@@ -17,19 +17,6 @@
       <label for="imgUrl"></label>
       <input type="url" class="form-control" placeholder="image url here" v-model="newBlog.imgUrl" />
     </div>
-    <!--<div class="form-group">
-      <label for="published"></label>
-      <input type="text" class="form-control" placeholder="Your name" v-model="newBlog.published" />
-    </div>-->
-    <!--<div class="form-group">
-      <label for="creatorEmail"></label>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Your email"
-        v-model="newBlog.creatorEmail"
-      />
-    </div>-->
     <button class="btn btn-sm btn-primary" type="button" @click="addBlog()">SUBMIT</button>
   </div>
 </template>
