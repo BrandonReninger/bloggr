@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     blog() {
-      return this.$store.state.activeBlog;
+      return this.$store.state.activeBlog.blog;
     }
   },
   methods: {},
