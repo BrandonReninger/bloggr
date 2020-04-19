@@ -7,7 +7,7 @@
         name="body"
         class="form-control"
         placeholder="Comment here"
-        v-model="newComment.comment"
+        v-model="newComment.body"
       />
     </div>
     <button class="btn btn-sm btn-primary" @click="addComment()">Comment</button>
@@ -25,10 +25,12 @@ export default {
   },
   computed: {},
   methods: {
+    //ANCHOR start here tomorrow, addComment and getComments need to be tied to blogId!!
     addComment() {
       this.$store.dispatch("addComment", this.newComment);
       this.newComment = {};
     },
+
     getComments() {
       this.$store.dispatch("getComments", { id: blog.id });
     }
