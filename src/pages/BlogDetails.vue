@@ -1,19 +1,24 @@
 <template>
-  <div class="blog-details row justify-content-center">
-    <div class="col-6 d-flex flex-column bg-light mt-2 pb-2">
-      <div class="row justify-content-center">
-        <div class="col-4 d-flex">
-          <img class="img-fluid img-thumbnail mt-2" :src="blog.imgUrl" />
+  <div class="blog-detail">
+    <div class="row justify-content-center">
+      <div class="col-6 d-flex flex-column bg-light mt-2 pb-2">
+        <div class="row justify-content-center">
+          <div class="col-4 d-flex">
+            <img class="img-fluid img-thumbnail mt-2" :src="blog.imgUrl" />
+          </div>
         </div>
+        <h3>{{blog.title}}</h3>
+        <p>{{blog.body}}</p>
+        <small>{{blog.creatorEmail}}</small>
+        <button class="btn btn-sm btn-primary" @click="$router.push({name: 'Home'})">BACK</button>
+        <button class="btn btn-sm btn-danger" type="button" @click="deleteBlog()">DELETE</button>
       </div>
-      <h3>{{blog.title}}</h3>
-      <p>{{blog.body}}</p>
-      <small>{{blog.creatorEmail}}</small>
-      <button class="btn btn-sm btn-primary" @click="$router.push({name: 'Home'})">BACK</button>
-      <button class="btn btn-sm btn-danger" type="button" @click="deleteBlog()">DELETE</button>
     </div>
-    <div class="row">
-      <CreateComment></CreateComment>
+    <div class="row justify-content-center">
+      <CreateComment class="col-6"></CreateComment>
+    </div>
+    <div class="row justify-content-center">
+      <comments class="col-6" v-for="comment in comments" :commentData="comment" :key="comment._id"></comments>
     </div>
   </div>
 </template>
@@ -21,6 +26,7 @@
 
 <script>
 import CreateComment from "../components/CreateComment";
+import Comment from "../components/Comment";
 export default {
   name: "blog-details",
   //props: ["blogData"],

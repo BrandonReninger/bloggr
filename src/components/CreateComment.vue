@@ -25,7 +25,13 @@ export default {
   },
   computed: {},
   methods: {
-    addComment() {}
+    addComment() {
+      this.$store.dispatch("addComment", this.newComment);
+      this.newComment = {};
+    },
+    getComments() {
+      this.$store.dispatch("getComments", { id: blog.id });
+    }
   },
   components: {}
 };

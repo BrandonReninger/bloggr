@@ -90,6 +90,27 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error)
       }
+    },
+
+    async addComment({
+      commit,
+      dispatch
+    }, newComment) {
+      try {
+        let res = await api.post('comments', newComment)
+        dispatch('getComments')
+      } catch (error) {
+        console.error(error)
+      }
+    },
+
+    async getComments() {
+      try {
+        let res = await api.get("comments")
+        this.commit('setComments', res.data)
+      } catch (error) {
+        console.error(error)
+      }
     }
 
   },
