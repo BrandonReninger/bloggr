@@ -27,12 +27,9 @@ export default {
   methods: {
     //ANCHOR start here tomorrow, addComment and getComments need to be tied to blogId!!
     addComment() {
+      this.newComment.blogId = this.$route.params.blogId;
       this.$store.dispatch("addComment", this.newComment);
       this.newComment = {};
-    },
-
-    getComments() {
-      this.$store.dispatch("getComments", { id: blog.id });
     }
   },
   components: {}

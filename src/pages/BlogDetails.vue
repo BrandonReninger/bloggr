@@ -39,6 +39,9 @@ export default {
   computed: {
     blog() {
       return this.$store.state.activeBlog.blog;
+    },
+    getComments() {
+      this.$store.dispatch("getComments");
     }
   },
   methods: {},
