@@ -18,9 +18,7 @@
     <div class="row justify-content-center">
       <CreateComment class="col-6"></CreateComment>
     </div>
-    <div class="row justify-content-center">
-      <Comment class="col-6" v-for="comment in comments" :commentData="comment" :key="comment._id"></Comment>
-    </div>
+    <Comment v-for="comment in comments" :commentData="comment" :key="comment._id"></Comment>
   </div>
 </template>
 

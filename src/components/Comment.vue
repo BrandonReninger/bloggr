@@ -1,9 +1,12 @@
 <template>
   <div class="comment">
-    <div class="row justify-content-center">
-      <div class="col-6 d-flex">
+    <div class="row mt-3 justify-content-center">
+      <div class="col-6 bg-info text-light mb-2 d-flex flex-column">
         <p>{{commentData.body}}</p>
         <small>{{commentData.creatorEmail}}</small>
+        <button @click="deleteComment()" type="button" class="close text-">
+          <span>&times;</span>
+        </button>
       </div>
     </div>
   </div>
@@ -22,7 +25,11 @@ export default {
       return this.$store.state.comments;
     }
   },
-  methods: {},
+  methods: {
+    deleteComment() {
+      this.$store.dispatch("deleteComment", this.commentData);
+    }
+  },
   components: {}
 };
 </script>
