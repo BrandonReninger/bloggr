@@ -18,7 +18,7 @@
       <CreateComment class="col-6"></CreateComment>
     </div>
     <div class="row justify-content-center">
-      <comments class="col-6" v-for="comment in comments" :commentData="comment" :key="comment._id"></comments>
+      <Comment class="col-6" v-for="comment in blog" :commentData="comment" :key="comment._id"></Comment>
     </div>
   </div>
 </template>
@@ -41,12 +41,18 @@ export default {
       return this.$store.state.activeBlog.blog;
     },
     getComments() {
-      this.$store.dispatch("getComments");
+      this.$store.state.activeBlog.comments;
     }
   },
-  methods: {},
+  methods: {
+    deleteBlog() {
+      this.$router.push({ name: "Home" });
+      this.$store.dispatch("deleteBlog", this.blog._id);
+    }
+  },
   components: {
-    CreateComment
+    CreateComment,
+    Comment
   }
 };
 </script>

@@ -97,17 +97,20 @@ export default new Vuex.Store({
       dispatch
     }, newComment) {
       try {
-        let res = await api.post('comments', newComment)
-        dispatch('getComments')
+        let res = await api.post('comments/', newComment)
+        this.dispatch('selectBlog', newComment.blogId)
       } catch (error) {
         console.error(error)
       }
     },
 
-    async getComments() {
+    async getComments({
+      commit,
+      dispatch
+    }) {
       try {
         let res = await api.get("comments")
-        this.commit('setComments', res.data)
+        commit('setComments', res.data)
       } catch (error) {
         console.error(error)
       }

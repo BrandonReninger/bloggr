@@ -33,6 +33,8 @@ export default {
   computed: {},
   methods: {
     addBlog() {
+      //NOTE stretch goals add all users blogs to profile page.
+      //this.newBlog.
       this.$store.dispatch("addBlog", this.newBlog);
       this.newBlog = {};
     }
