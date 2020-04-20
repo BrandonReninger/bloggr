@@ -10,6 +10,7 @@
         <h3>{{blog.title}}</h3>
         <p>{{blog.body}}</p>
         <small>{{blog.creatorEmail}}</small>
+        <button class="edit btn btn sm btn-success" @click="editBlog()">EDIT</button>
         <button class="btn btn-sm btn-primary" @click="$router.push({name: 'Home'})">BACK</button>
         <button class="btn btn-sm btn-danger" type="button" @click="deleteBlog()">DELETE</button>
       </div>
@@ -18,7 +19,7 @@
       <CreateComment class="col-6"></CreateComment>
     </div>
     <div class="row justify-content-center">
-      <Comment class="col-6" v-for="comment in blog" :commentData="comment" :key="comment._id"></Comment>
+      <Comment class="col-6" v-for="comment in comments" :commentData="comment" :key="comment._id"></Comment>
     </div>
   </div>
 </template>
@@ -40,14 +41,17 @@ export default {
     blog() {
       return this.$store.state.activeBlog.blog;
     },
-    getComments() {
-      this.$store.state.activeBlog.comments;
+    comments() {
+      return this.$store.state.activeBlog.comments;
     }
   },
   methods: {
     deleteBlog() {
       this.$router.push({ name: "Home" });
       this.$store.dispatch("deleteBlog", this.blog._id);
+    },
+    editBlog() {
+      this.$store.dispatch("editBlog", this.blog);
     }
   },
   components: {
@@ -59,4 +63,11 @@ export default {
 
 
 <style scoped>
+.edit {
+  background-color: green;
+}
+
+button {
+  margin-top: 0.5rem;
+}
 </style>

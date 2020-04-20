@@ -79,6 +79,18 @@ export default new Vuex.Store({
       }
     },
 
+    async editBlog({
+      commit,
+      dispatch
+    }, blog) {
+      try {
+        let res = await api.put("blogs/" + blog.id, blog)
+        dispatch('getBlogs')
+      } catch (error) {
+        console.error(error)
+      }
+    },
+
     async selectBlog({
       commit,
       dispatch
