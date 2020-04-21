@@ -145,7 +145,8 @@ export default new Vuex.Store({
       dispatch
     }, comment) {
       try {
-        let res = await api.put("comments/" + comment.id)
+        debugger
+        let res = await api.put("comments/" + comment.id, comment)
         //dispatch('getComments')
       } catch (error) {
         console.error(error)

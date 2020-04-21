@@ -8,7 +8,7 @@
           type="text"
           class="form-control"
           placeholder="Enter Comment here"
-          v-model="blog.comment"
+          v-model="commentData.body"
         />
       </div>
       <button class="btn btn-sm btn-primary" type="button" @click="editComment()">SUBMIT</button>
@@ -21,7 +21,9 @@
 export default {
   name: "EditComment",
   data() {
-    return {};
+    return {
+      commentData: {}
+    };
   },
   computed: {
     blog() {
@@ -30,7 +32,7 @@ export default {
   },
   methods: {
     editComment() {
-      this.$store.dispatch("editComment", this.blog.comment);
+      this.$store.dispatch("editComment", this.comment);
     }
   },
   components: {}

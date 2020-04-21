@@ -28,6 +28,9 @@ export default {
   computed: {
     comments() {
       return this.$store.state.comments;
+    },
+    blog() {
+      return this.$store.state.activeBlog.comments;
     }
   },
   methods: {
