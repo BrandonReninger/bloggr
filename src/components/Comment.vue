@@ -5,7 +5,7 @@
         <p>{{commentData.body}}</p>
         <small>{{commentData.creatorEmail}}</small>
         <button
-          @click="deleteComment()"
+          @click="deleteComment(commentData.id)"
           v-show="this.commentData.creatorEmail == $auth.userInfo.email"
           type="button"
           class="close text-"

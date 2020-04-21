@@ -133,8 +133,8 @@ export default new Vuex.Store({
       dispatch
     }, commentId) {
       try {
-        let res = await api.delete("comments/" + commentId.id)
-        dispatch('getComments', commentId)
+        let res = await api.delete("comments/" + commentId)
+        //dispatch('getComments', commentId)
       } catch (error) {
         console.error(error)
       }
