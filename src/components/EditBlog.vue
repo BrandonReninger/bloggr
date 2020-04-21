@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     editBlog() {
-      this.store.dispatch("editBlog", this.blog);
+      this.$store.dispatch("editBlog", this.blog);
     }
   },
   components: {}

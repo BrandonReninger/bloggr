@@ -21,9 +21,7 @@
 export default {
   name: "EditComment",
   data() {
-    return {
-      commentData: {}
-    };
+    return {};
   },
   computed: {
     blog() {
@@ -32,10 +30,11 @@ export default {
   },
   methods: {
     editComment() {
-      this.$store.dispatch("editComment", this.comment);
+      this.$store.dispatch("editComment", this.commentData);
     }
   },
-  components: {}
+  components: {},
+  props: ["commentData"]
 };
 </script>
 

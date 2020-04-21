@@ -17,7 +17,7 @@
           v-show="this.commentData.creatorEmail == $auth.userInfo.email"
           class="btn btn-primary"
         >EDIT</button>
-        <EditComment v-if="editCom"></EditComment>
+        <EditComment :commentData="commentData" v-if="editCom"></EditComment>
       </div>
     </div>
   </div>
