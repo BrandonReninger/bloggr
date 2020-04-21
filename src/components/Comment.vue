@@ -7,6 +7,8 @@
         <button @click="deleteComment()" type="button" class="close text-">
           <span>&times;</span>
         </button>
+        <button @click="editCom=!editCom" class="btn btn-primary">EDIT</button>
+        <EditComment v-if="editCom"></EditComment>
       </div>
     </div>
   </div>
@@ -14,11 +16,14 @@
 
 
 <script>
+import EditComment from "./EditComment";
 export default {
   name: "comment",
   props: ["commentData"],
   data() {
-    return {};
+    return {
+      editCom: false
+    };
   },
   computed: {
     comments() {
@@ -26,11 +31,12 @@ export default {
     }
   },
   methods: {
-    deleteComment() {
-      this.$store.dispatch("deleteComment", this.commentData);
+    async deleteComment(id) {
+      await this.$store.dispatch("deleteComment", id);
+      this.$store.dispatch("selectBlog", this.commentData.blogId);
     }
   },
-  components: {}
+  components: { EditComment }
 };
 </script>
 

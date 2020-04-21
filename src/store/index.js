@@ -85,7 +85,7 @@ export default new Vuex.Store({
     }, blog) {
       try {
         let res = await api.put("blogs/" + blog.id, blog)
-        dispatch('getBlogs')
+        //dispatch('getBlogs')
       } catch (error) {
         console.error(error)
       }
@@ -133,10 +133,22 @@ export default new Vuex.Store({
       dispatch
     }, commentId) {
       try {
-        let res = api.delete("comments/" + commentId.id)
-        dispatch('getComments')
+        let res = await api.delete("comments/" + commentId.id)
+        dispatch('getComments', commentId)
       } catch (error) {
+        console.error(error)
+      }
+    },
 
+    async editComment({
+      commit,
+      dispatch
+    }, comment) {
+      try {
+        let res = await api.put("comments/" + comment.id)
+        //dispatch('getComments')
+      } catch (error) {
+        console.error(error)
       }
     }
 
