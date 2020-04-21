@@ -10,9 +10,18 @@
         <h3>{{blog.title}}</h3>
         <p>{{blog.body}}</p>
         <small>{{blog.creatorEmail}}</small>
-        <button class="edit btn btn sm btn-success" @click="edit=!edit">EDIT</button>
         <button class="btn btn-sm btn-primary" @click="$router.push({name: 'Home'})">BACK</button>
-        <button class="btn btn-sm btn-danger" type="button" @click="deleteBlog()">DELETE</button>
+        <button
+          class="edit btn btn sm btn-success"
+          v-show="this.blog.creatorEmail == $auth.userInfo.email"
+          @click="edit=!edit"
+        >EDIT</button>
+        <button
+          class="btn btn-sm btn-danger"
+          v-show="this.blog.creatorEmail == $auth.userInfo.email"
+          type="button"
+          @click="deleteBlog()"
+        >DELETE</button>
       </div>
     </div>
     <EditBlog v-if="edit"></EditBlog>

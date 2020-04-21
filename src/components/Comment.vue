@@ -4,10 +4,19 @@
       <div class="col-6 bg-info text-light mb-2 d-flex flex-column">
         <p>{{commentData.body}}</p>
         <small>{{commentData.creatorEmail}}</small>
-        <button @click="deleteComment()" type="button" class="close text-">
+        <button
+          @click="deleteComment()"
+          v-show="this.commentData.creatorEmail == $auth.userInfo.email"
+          type="button"
+          class="close text-"
+        >
           <span>&times;</span>
         </button>
-        <button @click="editCom=!editCom" class="btn btn-primary">EDIT</button>
+        <button
+          @click="editCom=!editCom"
+          v-show="this.commentData.creatorEmail == $auth.userInfo.email"
+          class="btn btn-primary"
+        >EDIT</button>
         <EditComment v-if="editCom"></EditComment>
       </div>
     </div>

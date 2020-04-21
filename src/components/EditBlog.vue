@@ -1,5 +1,5 @@
 <template>
-  <div class="editBlog">
+  <div v-show="this.$auth.userInfo.email == blog.creatorEmail" class="editBlog">
     <h3>Edit Blog</h3>
     <div class="d-flex flex-column justify-content-center col-6 bg-light mt-2 pb-2">
       <div class="form-group">
